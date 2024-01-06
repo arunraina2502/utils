@@ -1,0 +1,45 @@
+#=============================================================================| 
+# Copyright (C) 2019 Dr.-Ing. Arun Raina (E-Mail: arunraina@icloud.com)
+# 
+# This is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This code is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this code. If not, see <http://www.gnu.org/licenses/>.
+#=============================================================================| 
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# colorful terminal cd
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabaggxgx
+export PS1="%/: "
+#PS1="\[\033[0;32m\]\$(pwd)\[\033[0;32m\]\[\033[0;37m\]:" 
+
+# open matlab with opengl
+alias matlab="matlab -softwareopengl"
+
+# alias ssh for different network accounts 
+alias sshws="ssh userid@domain-address-1"
+alias sshhp="ssh userid@domain-address-2"
+
+# alias for listing disk usage sorted by size
+alias du="du --block-size=1 -s * | sort -rn | numfmt --to=iec"
+
+#alias for backup (adjust path)
+alias bu="exec /usr/local/backup/backup.sh "$@""
+
+# mount network drives
+alias mnth="sudo mount -t cifs //Domain-address/Home$/userid/home /mnt/H -o user,username=userid,uid=001100,gid=110011,noauto,dir_mode=0750,file_mode=0640"
+alias mntg="sudo mount -t cifs //Domain-address/Shared /mnt/G -o user,username=userid,uid=001100,gid=110011,noauto,dir_mode=0750,file_mode=0640"
+
